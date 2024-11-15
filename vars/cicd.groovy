@@ -12,5 +12,5 @@ def deployment(jobname,ipaddress,appname)
 }
 def selenium(jobname)
 {
-   sh 'java -jar /var/lib/jenkins/workspace/${jobname}/testing.jar
+   sh "java -jar /var/lib/jenkins/workspace/${jobname}/testing.jar"
 }
