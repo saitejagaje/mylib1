@@ -6,9 +6,9 @@ def build()
 {
   sh 'mvn package'
 }
-def deployment(jobname,ipaddress,appname)
+def deployment(ipaddress,appname)
 {
-    sh "scp /var/lib/jenkins/workspace/${jobname}/webapp/target/webapp.war   ubuntu@${ip}:/var/lib/tomcat9/webapps/${appname}.war"
+    deploy adapters: [tomcat9(credentialsId: 'new-credentials', path: '', url: '${ipaddress}')], contextPath: '/${appname}', war: '**/*.war'
 }
 def selenium(jobname)
 {
