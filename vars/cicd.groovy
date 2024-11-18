@@ -8,7 +8,7 @@ def build()
 }
 def deployment(ipaddress,appname)
 {
-    deploy adapters: [tomcat9(credentialsId: 'new-credentials', path: '', url: '${ipaddress}')], contextPath: '/${appname}', war: '**/*.war'
+    deploy adapters: [tomcat9(credentialsId: 'new-credentials', path: '', url: ${ipaddress})], contextPath: /${appname}, war: '**/*.war'
 }
 def selenium(jobname)
 {
