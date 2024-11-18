@@ -4,7 +4,7 @@ def download(repo)
 }
 def build()
 {
-  sh 'mvn package'
+  sh '''mvn package'''
 }
 
 def selenium(jobname)
