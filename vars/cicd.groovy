@@ -8,9 +8,9 @@ def buildArtifact()
    sh 'mvn package'
 }
 
-def deployment(ipaddress,appname)
+def deployTomcat(jobname,ipaddress,context)
 {
-   deploy adapters: "[tomcat9(credentialsId: 'new-credentials', path: '', url: ${ipaddress})], contextPath: ${appname}, war: '**/*.war'"
+   sh "scp /var/lib/jenkins/workspace/${jobname}/webapp/target/webapp.war ubuntu@${ipaddress}:/var/lib/tomcat10/webapps/${context}.war"
 }
 
 def runSelenium(jobname)
