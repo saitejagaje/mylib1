@@ -9,7 +9,7 @@ def buildArtifact()
 }
 def deploy(ip,path)
 {
-   deploy adapters: [tomcat9(credentialsId: 'new-credentials', path: '', url: 'http://${ip}:8080')], contextPath: '${path}', war: '**/*.war'
+   deploy adapters: [tomcat9(credentialsId: 'new-credentials', path: '', url: 'http://${ip}:8080')], contextPath: ${path}, war: '**/*.war'
 }
 def runSelenium(jobname)
 {
